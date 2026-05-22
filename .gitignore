@@ -1,0 +1,8 @@
+report/
+*.docx
+*.pdf
+report.html
+convert.ps1
+docs/screenshots/
+.DS_Store
+Thumbs.db
