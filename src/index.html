@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИС «Контроль исполнения договоров»</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">ИС «Контроль исполнения договоров»</h1>
+            <p class="header__subtitle">Автоматизация учёта и мониторинга договорных обязательств</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Панель фильтрации -->
+        <section class="filters">
+            <h2 class="filters__title">Фильтрация по статусу</h2>
+            <div class="filters__buttons">
+                <button class="filter-btn filter-btn--active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="new">Новый</button>
+                <button class="filter-btn" data-filter="in-progress">В работе</button>
+                <button class="filter-btn" data-filter="approval">На согласовании</button>
+                <button class="filter-btn" data-filter="completed">Исполнен</button>
+                <button class="filter-btn" data-filter="overdue">Просрочен</button>
+            </div>
+        </section>
+
+        <!-- Статистика -->
+        <section class="stats">
+            <div class="stats__card">
+                <span class="stats__number" id="stats-total">0</span>
+                <span class="stats__label">Всего договоров</span>
+            </div>
+            <div class="stats__card stats__card--active">
+                <span class="stats__number" id="stats-active">0</span>
+                <span class="stats__label">В работе</span>
+            </div>
+            <div class="stats__card stats__card--overdue">
+                <span class="stats__number" id="stats-overdue">0</span>
+                <span class="stats__label">Просрочено</span>
+            </div>
+            <div class="stats__card stats__card--done">
+                <span class="stats__number" id="stats-completed">0</span>
+                <span class="stats__label">Исполнено</span>
+            </div>
+        </section>
+
+        <!-- Таблица договоров -->
+        <section class="contracts">
+            <h2 class="contracts__title">Реестр договоров</h2>
+            <div class="table-wrapper">
+                <table class="contracts__table" id="contracts-table">
+                    <thead>
+                        <tr>
+                            <th>№ договора</th>
+                            <th>Контрагент</th>
+                            <th>Дата заключения</th>
+                            <th>Срок исполнения</th>
+                            <th>Ответственный</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contracts-body">
+                        <!-- Данные заполняются из app.js -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Форма добавления договора -->
+        <section class="add-contract">
+            <h2 class="add-contract__title">Добавить новый договор</h2>
+            <form class="add-contract__form" id="contract-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contract-number">Номер договора</label>
+                        <input type="text" id="contract-number" placeholder="Например: ДГ-2026/015" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contractor">Контрагент</label>
+                        <input type="text" id="contractor" placeholder="Наименование организации" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="start-date">Дата заключения</label>
+                        <input type="date" id="start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="due-date">Срок исполнения</label>
+                        <input type="date" id="due-date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="responsible">Ответственный сотрудник</label>
+                        <input type="text" id="responsible" placeholder="Сотрудник" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Статус</label>
+                        <select id="status" required>
+                            <option value="new">Новый</option>
+                            <option value="in-progress">В работе</option>
+                            <option value="approval">На согласовании</option>
+                            <option value="completed">Исполнен</option>
+                            <option value="overdue">Просрочен</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit">Добавить договор</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 ИС «Контроль исполнения договоров» — Учебный проект</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
